@@ -1,4 +1,7 @@
 import { useState } from "react";
+import InputNamaAtomic from "../atomic/inputNamaAtomic";
+import InputUmurAtomic from "../atomic/InputUmurAtomic";
+import RadioGenderAtomic from "../atomic/RadioGenderAtomic";
 
 const dataKosong = {
     nama         : "",
@@ -55,41 +58,9 @@ const PassengerInput = (props) => {
     return (
         <div>
             <form style={viewMode} >
-                <label>
-                    Nama : 
-                    <input 
-                    type="text" 
-                    name="nama"
-                    value={data.nama}
-                    onChange={handleChange}
-                    />
-                </label><br />
-                <label>
-                    Umur : 
-                    <input 
-                    type="number" 
-                    name="umur"
-                    value={data.umur}
-                    onChange={handleChange}
-                    />
-                </label><br />
-                <label>
-                    Jenis Kelamin :
-                    <input 
-                    type="radio"
-                    name="jenisKelamin" 
-                    value="Pria"
-                    checked={data.jenisKelamin === "Pria"}
-                    onChange={handleChange}
-                    /> <label>Pria</label>
-                    <input 
-                    type="radio"
-                    name="jenisKelamin" 
-                    value="Wanita"
-                    checked={data.jenisKelamin === "Wanita"}
-                    onChange={handleChange}
-                    /> <label>Wanita</label>
-                </label><br />
+                <InputNamaAtomic type="text" name="nama" value={data.nama} onChange={handleChange} />
+                <InputUmurAtomic type="number" name="umur" value={data.umur} onChange={handleChange} />
+                <RadioGenderAtomic onChange={handleChange} checked={data.jenisKelamin} name="jenisKelamin"/>
                 
                 <button onClick={handleSubmit} type="submit">Submit</button>
                 <button onClick={handleViewMode}>Batal</button>
