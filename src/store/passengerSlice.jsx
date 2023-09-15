@@ -48,7 +48,7 @@ export const passengerSlice = createSlice({
             })
         }, 
         tambahPengunjung : (state, action) => {
-            const tambahData = {id : uuidv4, ...action.payload};
+            const tambahData = {id : uuidv4(), ...action.payload};
             state.passangers = [...state.passangers, tambahData]
         }
     }

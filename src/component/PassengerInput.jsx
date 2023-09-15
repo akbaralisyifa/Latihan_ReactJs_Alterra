@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { tambahPengunjung } from "../store/passengerSlice";
+
+
 import InputNamaAtomic from "../atomic/inputNamaAtomic";
 import InputUmurAtomic from "../atomic/InputUmurAtomic";
 import RadioGenderAtomic from "../atomic/RadioGenderAtomic";
@@ -12,7 +16,7 @@ const PassengerInput = (props) => {
 
     const [data, setData] = useState(dataKosong);
     const [editing, setEditing] = useState(true);
-
+    const dispatch = useDispatch();
 
     const handleViewMode = () => {
         setEditing(true)
@@ -43,7 +47,7 @@ const PassengerInput = (props) => {
             jenisKelamin : data.jenisKelamin
         }
 
-        props.tambahPengunjung(newData);
+        dispatch(tambahPengunjung(newData));
 
         setData(dataKosong)
 

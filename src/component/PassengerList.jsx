@@ -2,6 +2,7 @@
 const PassengerList = (props) => {
     const {item , hapusPengunjung} = props;
 
+    
     return (
         <tr style={{textAlign:"center"}}>
                     <td>{item.nama}</td>
